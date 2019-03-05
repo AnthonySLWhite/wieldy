@@ -10,6 +10,7 @@
   "license": "",
   "dependencies": {
     "cross-env": "^5.2.0",
+    "lodash": "^4.17.11",
     "nps": "^5.9.3",
     "nps-utils": "^1.7.0",
     "react": "^16.8.2",
