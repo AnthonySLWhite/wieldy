@@ -1,13 +1,11 @@
-import isEqual from 'lodash/isEqual';
 import isFunction from 'lodash/isFunction';
 import React from 'react';
 
-const STATE = {};
+const STATE = { Admin: {} };
 const SET_STATE_FNS = [];
 const REDUCERS = {};
 const SUBSCRIBED = [];
 const REACT_CONTEXT = React.createContext();
-
 export const GetState = () => STATE;
 
 export function Subscribe(callback) {
@@ -36,25 +34,18 @@ export function CreateStore(reducers) {
 export function Dispatch(PAYLOAD) {
   if (!PAYLOAD.type)
     throw Error('No type passed when calling dispatch');
-  let stop = false;
+  const stop = false;
   // Loop over every reducer middleware until a different state is returned
   Object.keys(REDUCERS).forEach(reducer => {
-    if (!stop) {
-      // State stored
-      const reducerState = STATE[reducer];
-      // New State returned
-      const newState = REDUCERS[reducer](reducerState, PAYLOAD);
-      if (isEqual(newState, reducerState)) return 0;
-      // If states are different then update
-      STATE[reducer] = newState;
-      stop = true;
-    }
+    // State stored
+    const oldState = STATE[reducer];
+    // New State returned
+    const newState = REDUCERS[reducer](oldState, PAYLOAD);
+    // If states are different then update
+    STATE[reducer] = newState;
     return 1;
   });
-  if (stop) {
-    // If state was changed then trigger changes in react
-    reactStateUpdate();
-  }
+  reactStateUpdate();
 }
 
 // Provider wrapper
@@ -62,10 +53,7 @@ export class Provider extends React.Component {
   constructor(props) {
     super(props);
     const exportSetState = this.setState.bind(this);
-    this.state = addToSetStateFNs(
-      exportSetState,
-      state => state,
-    );
+    this.state = addToSetStateFN(exportSetState);
   }
 
   render() {
@@ -83,7 +71,7 @@ export function Connect(mapStateToProps, Component) {
     return (
       <REACT_CONTEXT.Consumer>
         {props =>
-          new Component({
+          Component({
             ...mapStateToProps(props),
             ...originalProps,
           })
@@ -97,21 +85,17 @@ export function Connect(mapStateToProps, Component) {
 function reactStateUpdate() {
   // Update all states
   SET_STATE_FNS.forEach(setStateFN => {
-    const { reactSetState, mapStateToProps } = setStateFN;
     // Update all places where state is used
-    reactSetState(mapStateToProps(STATE));
+    setStateFN(STATE);
   });
   triggerSubscribed();
 }
 
 // Add state parent to SET_STATE_FNS
-function addToSetStateFNs(reactSetState, mapStateToProps) {
-  SET_STATE_FNS.push({
-    reactSetState,
-    mapStateToProps,
-  });
+function addToSetStateFN(reactSetState) {
+  SET_STATE_FNS.push(reactSetState);
   // Return default state
-  return mapStateToProps(STATE);
+  return STATE;
 }
 
 function triggerSubscribed() {
