@@ -22,9 +22,7 @@ module.exports = {
     dom: {
       // Development mode
       default: {
-        script: npsUtils.concurrent.nps(
-          'parcel.dom',
-        ),
+        script: npsUtils.concurrent.nps('parcel.dom'),
         description: 'Development mode for DOM',
       },
       // Builds
@@ -34,9 +32,7 @@ module.exports = {
           description: 'Build DOM project',
         },
         run: {
-          script: npsUtils.series.nps(
-            'parcel.dom.build',
-          ),
+          script: npsUtils.series.nps('parcel.dom.build'),
           description: 'Build DOM project and run server',
         },
       },
@@ -75,12 +71,12 @@ module.exports = {
       dom: {
         default: {
           script:
-            'cross-env NODE_ENV=development parcel watch src/app.js --public-url ./ --out-dir dist --target browser',
+            'cross-env NODE_ENV=development parcel watch src/app.js --out-dir dist --target browser',
           hiddenFromHelp: true,
         },
         build: {
           script:
-            'cross-env NODE_ENV=production parcel build src/app.js --public-url ./ --out-dir prod --target browser  --no-cache --no-source-maps',
+            'cross-env NODE_ENV=production parcel build src/app.js --out-dir prod --target browser  --no-cache --no-source-maps',
           hiddenFromHelp: true,
         },
       },
