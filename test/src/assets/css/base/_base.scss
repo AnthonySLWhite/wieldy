@@ -1,0 +1,70 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+
+  /* #region Animation fixes */
+  // backface-visibility: hidden;
+  // -webkit-backface-visibility: hidden;
+  // -webkit-transform: translateZ(0) scale(1, 1);
+  // transform: translateZ(0);
+  // -webkit-transform: translate3d(0, 0, 0);
+  // -webkit-transform-style: preserve-3d;
+  /* #endregion */
+  box-shadow: 0 0 0 #000;
+}
+
+html {
+  // Defines what 1 rem is (default browser font size: 16px)
+  // font-size: 62.5%; // 1rem = 10px Desktop First
+
+  /* #region Mobile first breakpoints */
+  // font-size: 43.75%; // 1rem = 7px Mobile First
+  // @include minBP(tab-port) {
+  //   font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  // }
+  // @include minBP(tab-land) {
+  //   font-size: 56.25%; // 1rem = 9px
+  // }
+  // @include minBP(desktop) {
+  //   font-size: 62.5%; // 1rem = 10px
+  // }
+  // @include minBP(big-desktop) {
+  //   font-size: 75%; // 1rem = 12px
+  // }
+  /* #endregion */
+
+  /* #region Desktop first breakpoints */
+
+  // font-size: 62.5%; // 1rem = 10px Desktop First
+
+  // @include maxBP(big-desktop) {
+  //   font-size: 75%; // 1rem = 12px
+  // }
+  // @include maxBP(tab-land) {
+  //   font-size: 56.25%; // 1rem = 9px
+  // }
+  // @include maxBP(tab-port) {
+  //   font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  // }
+  // @include maxBP(phone) {
+  //   font-size: 43.75%; // 1rem = 7px
+  // }
+  /* #endregion */
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-black;
+  box-sizing: border-box;
+}
+
+::selection {
+  // Change selected text
+  // background-color: $color-primary;
+  // color: $color-white;
+}

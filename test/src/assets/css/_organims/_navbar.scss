@@ -1,0 +1,9 @@
+// Define the organism itself
+// Organisms don't start with '__' because they are the parent
+
+.navbar {
+  background-color: $color-primary;
+
+  // Import list styles
+  @import '../_molecules/nav/__list.scss';
+}

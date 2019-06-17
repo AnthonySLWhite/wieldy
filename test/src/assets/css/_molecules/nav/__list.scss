@@ -1,0 +1,12 @@
+// Define base style for list child
+// Molecules always start with '__'
+
+&__list {
+  padding: 2rem;
+
+  &--big {
+    font-size: 2rem;
+  }
+  // Import __btn styles
+  @import '../../_atoms/_btn';
+}

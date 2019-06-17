@@ -1,0 +1,97 @@
+/* #region Breakpoints*/
+// Order: Base + typography > general layout + grid > page layout > components
+
+// You can add custom breakpoints or use the predefined ones
+/* 
+  @include minBP(big-desktop){
+    opacity:0;
+  }
+  @include maxBP(1000px){
+    font-size: 2rem;
+  }
+*/
+// Mobile first breakpoints
+@mixin minBP($break: desktop) {
+  @if $break == tab-port {
+    $break: 37.5em; // 600px
+  }
+  @if $break == tab-land {
+    $break: 56.25em; // 900px
+  }
+  @if $break == desktop {
+    $break: 75em; // 1200px
+  }
+  @if $break == big-desktop {
+    $break: 112.5em; // 1800px    Ex.: 1800/16 = 112.5
+  }
+  @media (min-width: $break) {
+    @content;
+  }
+}
+
+// Desktop first breakpoints
+@mixin maxBP($break: phone) {
+  @if $break == desktop {
+    $break: 112.5em; // 1800px    Ex.: 1800/16 = 112.5
+  }
+  @if $break == tab-land {
+    $break: 75em; // 1200px
+  }
+  @if $break == tab-port {
+    $break: 56.25em; // 900px
+  }
+  @if $break == phone {
+    $break: 37.5em; // 600px
+  }
+  // If screen bigger than 1800 px breakpoint
+  @if $break == big-desktop {
+    $break: 112.5em; // x > 1800px
+    @media (min-width: $break) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $break) {
+      @content;
+    }
+  }
+}
+
+// Check if it's touchscreen
+@mixin isTouch {
+  @media (hover: none), (pointer: coarse) {
+    @content;
+  }
+}
+/* #endregion */
+
+/* #region Grid system*/
+
+// CSS Grid column layout generator
+@mixin grid($columns: 1, $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-gap: $gap;
+  justify-items: center;
+  align-items: center;
+}
+// Span item across x
+@mixin gridItem($span: 1) {
+  grid-column: span $span;
+}
+/* #endregion */
+
+/* #region Utilities*/
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Select all the children but not the last
+@mixin allButLast {
+  &:not(:last-child) {
+    @content;
+  }
+}
+/* #endregion */

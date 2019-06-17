@@ -1,0 +1,22 @@
+// You can import the styles related to the page into the styles.scss
+// Or you can include the page directly into the html or js related to the page so you don't bundle all of your code.
+// Just make sure to include everything you need!
+
+// FOR FAST LOAD TIMES READ!!!
+// Import only what you need to keep the bundle size to a minimum
+
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import '../abstracts/variables', '../abstracts/functions',
+  '../abstracts/mixins';
+
+// 2. Vendors
+@import '../vendors/normalize';
+
+// 3. Base stuff
+@import '../base/base', '../base/utilities', '../base/fonts',
+  '../base/typography', '../base/helpers', '../base/animations';
+
+// 4. Template
+@import '../_templates/home';

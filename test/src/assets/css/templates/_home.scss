@@ -1,0 +1,7 @@
+.body {
+  .nav--wrapper {
+    position: fixed;
+    top: 0;
+    @import '../_organims/navbar';
+  }
+}

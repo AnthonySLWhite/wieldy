@@ -1,0 +1,12 @@
+// Define base style for btn child
+// Atoms always start with '__'
+
+&__btn {
+  background-color: #000;
+  color: #fff;
+
+  // btn modifier
+  &--green {
+    background-color: green;
+  }
+}
