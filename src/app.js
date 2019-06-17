@@ -100,7 +100,7 @@ export function Connect(mapStateToProps, Component) {
     return (
       <REACT_CONTEXT.Consumer>
         {props =>
-          Component({
+          new Component({
             ...mapStateToProps(props),
             ...originalProps,
           })
