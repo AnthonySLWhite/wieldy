@@ -1,44 +1,48 @@
 {
-  "name": "wieldy",
-  "version": "1.1.1",
-  "description": "The easier alternative to Redux",
-  "main": "prod/app.js",
-  "scripts": {
-    "start": "nps",
-    "build": "nps build"
-  },
-  "author": "Anthony White",
-  "license": "",
-  "dependencies": {
-    "cross-env": "^5.2.0",
-    "lodash": "^4.17.11",
-    "nps": "^5.9.3",
-    "nps-utils": "^1.7.0",
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "store2": "^2.7.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^9.4.8",
-    "babel-eslint": "^10.0.1",
-    "browser-sync": "^2.26.3",
-    "cssnano": "^4.1.10",
-    "eslint": "^5.14.1",
-    "eslint-config-google": "^0.12.0",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-config-problems": "^2.0.0",
-    "eslint-plugin-fp": "2.3.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "localtunnel": "^1.9.1",
-    "node-sass": "^4.11.0",
-    "parcel-bundler": "^1.11.0",
-    "postcss": "^7.0.14",
-    "prettier": "^1.16.4",
-    "rollup": "^1.9.3"
-  }
+    "name": "wieldy",
+    "version": "1.1.1",
+    "description": "The easier alternative to Redux",
+    "main": "prod/app.js",
+    "scripts": {
+        "start": "nps",
+        "build": "nps build"
+    },
+    "author": "Anthony White",
+    "license": "",
+    "dependencies": {
+        "cross-env": "^5.2.0",
+        "lodash": "^4.17.11",
+        "nps": "^5.9.3",
+        "nps-utils": "^1.7.0",
+        "store2": "^2.7.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.3",
+        "@babel/preset-env": "^7.4.3",
+        "@babel/preset-react": "^7.0.0",
+        "autoprefixer": "^9.4.8",
+        "babel-eslint": "^10.0.1",
+        "browser-sync": "^2.26.3",
+        "cssnano": "^4.1.10",
+        "eslint": "^5.14.1",
+        "eslint-config-google": "^0.12.0",
+        "eslint-config-prettier": "^4.0.0",
+        "eslint-config-problems": "^2.0.0",
+        "eslint-plugin-fp": "2.3.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-prettier": "^3.0.1",
+        "eslint-plugin-react": "^7.12.4",
+        "localtunnel": "^1.9.1",
+        "node-sass": "^4.11.0",
+        "parcel-bundler": "^1.11.0",
+        "postcss": "^7.0.14",
+        "prettier": "^1.16.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "rollup": "^1.9.3"
+    },
+    "peerDependencies": {
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    }
 }
