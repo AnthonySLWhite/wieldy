@@ -1,6 +1,6 @@
 {
   "name": "wieldy",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The easier alternative to Redux",
   "main": "prod/app.js",
   "scripts": {
