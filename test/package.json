@@ -34,7 +34,7 @@
     "localtunnel": "^1.9.1",
     "node-sass": "^4.11.0",
     "parcel-bundler": "^1.11.0",
-    "postcss": "^7.0.14",
+    "postcss": "^7.0.36",
     "prettier": "^1.16.4"
   }
 }
